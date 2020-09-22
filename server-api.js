@@ -37,13 +37,14 @@ app.get("/kontak", function (req, res) {
             res.json(doc);
             res.end();
         })
+    } else {
+        KontakBaru.find({},
+            function (err, doc) {
+                if (err) throw err;
+                res.json(doc);
+                res.end();
+            })
     }
-    KontakBaru.find({},
-        function (err, doc) {
-            if (err) throw err;
-            res.json(doc);
-            res.end();
-        })
 
 })
 //POST DATA
